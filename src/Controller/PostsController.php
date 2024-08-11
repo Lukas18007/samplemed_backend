@@ -37,26 +37,10 @@ class PostsController extends AppController
         $this->viewBuilder()->setOption('serialize', ['post', 'message']);
     }
 
-    public function edit($id)
-    {
-        $this->request->allowMethod(['patch', 'put']);
-
-        $post = $this->Posts->get($id);
-        $post = $this->Posts->patchEntity($post, $this->request->getData());
-
-        $message =  $this->posts->save($post) ?'Saved' : 'Error';
-
-        $this->set([
-            'message' => $message,
-            'post' => $post,
-        ]);
-
-        $this->viewBuilder()->setOption('serialize', ['post', 'message']);
-    }
-
     public function delete($id)
     {
         $this->request->allowMethod(['delete']);
+
         $post = $this->Posts->get($id);
         $message = 'Deleted';
         if (!$this->Posts->delete($post)) {
