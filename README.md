@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 ```
 
-- **Simultaneidade:** Nesse momento nenhum método de simultaneidade foi aplicado, porém no futuro, caso necessário poderiamos aplicar técnicas como uso o uso de filas e uso de cache. Também poderiamos separar 2 cópias do bancos de dados, uma exclusiva para consulta e outra para escrita.
+- **Simultaneidade:** Nesse momento nenhum método de simultaneidade foi aplicado, porém no futuro, caso necessário, poderiamos aplicar técnicas como o uso de filas e uso de cache. Também poderiamos separar 2 cópias do bancos de dados, uma exclusiva para consulta e outra para escrita.
 
 
 ## Frontend
