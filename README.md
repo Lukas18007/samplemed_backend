@@ -2,6 +2,8 @@
 
 Essa é uma API que recebe, exibe e deleta postagens em um Blog.
 
+Frontend: https://github.com/Lukas18007/samplemed_frontend
+
 ## Instalação
 
 1. Clone o repositório
