@@ -1,7 +1,37 @@
-Table posts {
-    id integer [pk, increment] // A primary key column is usually included but not explicitly defined in your migration
-    title varchar(255)
-    body text
-    created datetime
-    modified datetime
+Table users {
+  id int [pk, increment]
+  username varchar(50) [unique, not null]
+  email varchar(100) [unique, not null]
+  password varchar(255) [not null]
+  created_at datetime [default: `now()`]
+  updated_at datetime [default: `now()`]
 }
+
+Table posts {
+  id int [pk, increment]
+  user_id int [ref: > users.id]
+  title varchar(255) [not null]
+  body text [not null]
+  created_at datetime [default: `now()`]
+  updated_at datetime [default: `now()`]
+}
+
+Table comments {
+  id int [pk, increment]
+  post_id int [ref: > posts.id]
+  user_id int [ref: > users.id]
+  body text [not null]
+  created_at datetime [default: `now()`]
+}
+
+Table tags {
+  id int [pk, increment]
+  name varchar(50) [unique, not null]
+}
+
+Table post_tags {
+  post_id int [ref: > posts.id]
+  tag_id int [ref: > tags.id]
+  [pk: (post_id, tag_id)]
+}
+
